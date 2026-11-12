@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho — Brothers Bucket</title>
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="iniciarPagina(); mostrarCarrinho()">
+
+<header class="topo">
+  <div class="topo-conteudo">
+    <a href="index.html" class="logo">
+      <img src="images/brothers-bucket-logo.png" alt="Brothers Bucket">
+      <span>BROTHERS BUCKET</span>
+    </a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="carrinho.html">Carrinho (<span id="contador">0</span>)</a>
+      <span id="area-usuario">
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html" class="botao">Criar conta</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="titulo-pagina">
+    <h1>Seu <span class="destaque">balde.</span></h1>
+    <p>Confira os itens antes de finalizar.</p>
+  </div>
+
+  <div class="container">
+    <!-- Aparece quando o carrinho está vazio -->
+    <div class="vazio" id="carrinho-vazio" style="display:none">
+      <h2>Seu balde está vazio!</h2>
+      <p>Ainda dá tempo de escolher uma crocância de respeito.</p>
+      <a href="cardapio.html" class="botao">Explorar cardápio</a>
+    </div>
+
+    <!-- Aparece quando existem itens -->
+    <div class="carrinho-layout" id="carrinho-cheio" style="display:none">
+      <div>
+        <div class="tabela-rolagem">
+          <table>
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="itens-carrinho"></tbody>
+          </table>
+        </div>
+        <p style="margin-top:20px"><a href="cardapio.html" class="botao botao-contorno">← Continuar comprando</a></p>
+      </div>
+
+      <aside class="resumo">
+        <h2>Resumo do pedido</h2>
+        <div class="cupom">
+          <input type="text" id="cupom" placeholder="Cupom de desconto">
+          <button class="botao botao-escuro" onclick="aplicarCupom()">Aplicar</button>
+        </div>
+        <span class="dica">Dica: use BROTHER10</span>
+
+        <div class="linha-resumo"><span>Subtotal</span><b id="subtotal">R$ 0,00</b></div>
+        <div class="linha-resumo"><span>Entrega</span><b id="entrega">R$ 0,00</b></div>
+        <div class="linha-resumo gratis" id="linha-desconto" style="display:none"><span>Desconto</span><b id="desconto">R$ 0,00</b></div>
+
+        <div class="linha-total"><span>Total</span><span id="total">R$ 0,00</span></div>
+        <button class="botao botao-grande" onclick="finalizarPedido()">Finalizar pedido</button>
+      </aside>
+    </div>
+  </div>
+  <br>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-colunas">
+      <div>
+        <h3>Brothers Bucket</h3>
+        <p>Crocância sem limites. Sabor que reúne.</p>
+      </div>
+      <div>
+        <h3>Navegue</h3>
+        <a href="index.html">Início</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="perfil.html">Meu perfil</a>
+      </div>
+      <div>
+        <h3>Fale com a gente</h3>
+        <p>Telefone: (11) 4002-2025</p>
+        <p>E-mail: ola@brothersbucket.com.br</p>
+        <p>São Paulo - SP</p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Brothers Bucket. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

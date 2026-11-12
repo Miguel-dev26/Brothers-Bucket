@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brothers Bucket — Crocância sem limites</title>
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="iniciarPagina()">
+
+<header class="topo">
+  <div class="topo-conteudo">
+    <a href="index.html" class="logo">
+      <img src="images/brothers-bucket-logo.png" alt="Brothers Bucket">
+      <span>BROTHERS BUCKET</span>
+    </a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="carrinho.html">Carrinho (<span id="contador">0</span>)</a>
+      <span id="area-usuario">
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html" class="botao">Criar conta</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-conteudo">
+      <div>
+        <h1>Crocância<br><span class="destaque">sem limites!</span></h1>
+        <p>O sabor que reúne os brothers. Escolha seu balde e aproveite cada pedaço.</p>
+        <div class="hero-botoes">
+          <a href="cardapio.html" class="botao">Peça agora</a>
+          <a href="cardapio.html" class="botao botao-amarelo">Ver cardápio</a>
+        </div>
+        <p class="preco-hero">Baldes a partir de R$ 32,90</p>
+      </div>
+      <div>
+        <img src="images/balde-destaque.png" alt="Balde de frango frito crocante">
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa">FRANGO CROCANTE • MOLHOS EXCLUSIVOS • COMBOS IRADOS • ENTREGA QUENTINHA</div>
+
+  <section class="secao">
+    <div class="container">
+      <h2 class="secao-titulo">Escolha seu <span class="vermelho">balde.</span></h2>
+      <div class="lista-produtos">
+      <article class="produto" data-nome="Balde Pequeno" data-categoria="baldes">
+        <img src="images/balde-pequeno.webp" alt="Balde Pequeno">
+        <div class="produto-info">
+          <small>baldes</small>
+          <h3>Balde Pequeno</h3>
+          <p>6 pedaços crocantes. A fome bateu? Esse resolve.</p>
+          <span class="preco">R$ 32,90</span>
+          <div class="produto-acoes">
+            <button class="botao" onclick="adicionar(1, 'Balde Pequeno', 32.90, 'images/balde-pequeno.webp', 'baldes')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Balde Médio" data-categoria="baldes">
+        <img src="images/balde-medio.webp" alt="Balde Médio">
+        <div class="produto-info">
+          <span class="etiqueta">Mais pedido</span><br>
+          <small>baldes</small>
+          <h3>Balde Médio</h3>
+          <p>10 pedaços dourados para dividir — ou não.</p>
+          <span class="preco">R$ 47,90</span>
+          <div class="produto-acoes">
+            <button class="botao" onclick="adicionar(2, 'Balde Médio', 47.90, 'images/balde-medio.webp', 'baldes')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Balde Grande" data-categoria="baldes">
+        <img src="images/balde-grande.png" alt="Balde Grande">
+        <div class="produto-info">
+          <span class="etiqueta">Família</span><br>
+          <small>baldes</small>
+          <h3>Balde Grande</h3>
+          <p>15 pedaços, dois molhos e muita crocância.</p>
+          <span class="preco">R$ 64,90</span>
+          <div class="produto-acoes">
+            <button class="botao" onclick="adicionar(3, 'Balde Grande', 64.90, 'images/balde-grande.png', 'baldes')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Balde Gigante" data-categoria="baldes">
+        <img src="images/balde-gigante.webp" alt="Balde Gigante">
+        <div class="produto-info">
+          <span class="etiqueta">Melhor valor</span><br>
+          <small>baldes</small>
+          <h3>Balde Gigante</h3>
+          <p>20 pedaços para reunir a galera toda.</p>
+          <span class="preco">R$ 82,90</span>
+          <div class="produto-acoes">
+            <button class="botao" onclick="adicionar(4, 'Balde Gigante', 82.90, 'images/balde-gigante.webp', 'baldes')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      </div>
+      <p style="margin-top:25px"><a href="cardapio.html" class="botao botao-contorno">Ver cardápio completo</a></p>
+    </div>
+  </section>
+
+  <section class="historia">
+    <div class="container historia-conteudo">
+      <img src="images/historia-frango.webp" alt="Frango crocante servido para compartilhar">
+      <div>
+        <h2>Feito para <span class="destaque">compartilhar.</span></h2>
+        <p>A Brothers Bucket nasceu de uma ideia simples: comida boa fica ainda melhor quando divide a mesa com quem importa. Receita própria, ingredientes selecionados e crocância de verdade.</p>
+        <ul>
+          <li>Frango fresco e temperado todos os dias</li>
+          <li>Empanado artesanal super crocante</li>
+          <li>Molhos exclusivos feitos na casa</li>
+        </ul>
+        <a href="cardapio.html" class="botao">Bora pedir?</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-colunas">
+      <div>
+        <h3>Brothers Bucket</h3>
+        <p>Crocância sem limites. Sabor que reúne.</p>
+      </div>
+      <div>
+        <h3>Navegue</h3>
+        <a href="index.html">Início</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="perfil.html">Meu perfil</a>
+      </div>
+      <div>
+        <h3>Fale com a gente</h3>
+        <p>Telefone: (11) 4002-2025</p>
+        <p>E-mail: ola@brothersbucket.com.br</p>
+        <p>São Paulo - SP</p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Brothers Bucket. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

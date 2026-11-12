@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar — Brothers Bucket</title>
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="iniciarPagina()">
+
+<header class="topo">
+  <div class="topo-conteudo">
+    <a href="index.html" class="logo">
+      <img src="images/brothers-bucket-logo.png" alt="Brothers Bucket">
+      <span>BROTHERS BUCKET</span>
+    </a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="carrinho.html">Carrinho (<span id="contador">0</span>)</a>
+      <span id="area-usuario">
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html" class="botao">Criar conta</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="caixa-form">
+    <h1>Mate a <span class="vermelho">saudade.</span></h1>
+    <p>Entre para acompanhar pedidos e pedir mais rápido.</p>
+
+    <form onsubmit="return entrar()">
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="voce@email.com">
+      </div>
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Mínimo 6 caracteres">
+      </div>
+
+      <button type="button" class="link-esqueci" onclick="esqueciSenha()">Esqueci minha senha</button>
+
+      <ul class="erros" id="erros"></ul>
+      <button type="submit" class="botao botao-grande">Entrar</button>
+    </form>
+
+    <p class="link-troca">Ainda não é um brother? <a href="cadastro.html">Criar conta</a></p>
+    <p class="aviso">Autenticação demonstrativa — nenhum dado é enviado.</p>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-colunas">
+      <div>
+        <h3>Brothers Bucket</h3>
+        <p>Crocância sem limites. Sabor que reúne.</p>
+      </div>
+      <div>
+        <h3>Navegue</h3>
+        <a href="index.html">Início</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="perfil.html">Meu perfil</a>
+      </div>
+      <div>
+        <h3>Fale com a gente</h3>
+        <p>Telefone: (11) 4002-2025</p>
+        <p>E-mail: ola@brothersbucket.com.br</p>
+        <p>São Paulo - SP</p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Brothers Bucket. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

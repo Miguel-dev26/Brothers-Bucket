@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio — Brothers Bucket</title>
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="iniciarPagina()">
+
+<header class="topo">
+  <div class="topo-conteudo">
+    <a href="index.html" class="logo">
+      <img src="images/brothers-bucket-logo.png" alt="Brothers Bucket">
+      <span>BROTHERS BUCKET</span>
+    </a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="carrinho.html">Carrinho (<span id="contador">0</span>)</a>
+      <span id="area-usuario">
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html" class="botao">Criar conta</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="titulo-pagina">
+    <h1>Nosso <span class="destaque">cardápio.</span></h1>
+    <p>Dos baldes gigantes aos molhos secretos. Tudo feito para matar sua fome.</p>
+  </div>
+
+  <div class="container">
+    <div class="filtros">
+      <input type="text" id="busca" placeholder="Busque pelo seu favorito..." oninput="filtrar()">
+      <select id="categoria" onchange="filtrar()">
+        <option value="todos">Todas as categorias</option>
+        <option value="baldes">Baldes</option>
+        <option value="molhos">Molhos</option>
+        <option value="bebidas">Bebidas</option>
+      </select>
+      <button class="botao botao-contorno" onclick="limparFiltros()">Limpar filtros</button>
+    </div>
+
+    <p class="total-produtos" id="total-produtos">12 produtos</p>
+
+    <div class="lista-produtos">
+      <article class="produto" data-nome="Balde Pequeno" data-categoria="baldes">
+        <img src="images/balde-pequeno.webp" alt="Balde Pequeno">
+        <div class="produto-info">
+          <small>baldes</small>
+          <h3>Balde Pequeno</h3>
+          <p>6 pedaços crocantes. A fome bateu? Esse resolve.</p>
+          <span class="preco">R$ 32,90</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd1" value="1" min="1">
+            <button class="botao" onclick="adicionar(1, 'Balde Pequeno', 32.90, 'images/balde-pequeno.webp', 'baldes')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Balde Médio" data-categoria="baldes">
+        <img src="images/balde-medio.webp" alt="Balde Médio">
+        <div class="produto-info">
+          <span class="etiqueta">Mais pedido</span><br>
+          <small>baldes</small>
+          <h3>Balde Médio</h3>
+          <p>10 pedaços dourados para dividir — ou não.</p>
+          <span class="preco">R$ 47,90</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd2" value="1" min="1">
+            <button class="botao" onclick="adicionar(2, 'Balde Médio', 47.90, 'images/balde-medio.webp', 'baldes')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Balde Grande" data-categoria="baldes">
+        <img src="images/balde-grande.png" alt="Balde Grande">
+        <div class="produto-info">
+          <span class="etiqueta">Família</span><br>
+          <small>baldes</small>
+          <h3>Balde Grande</h3>
+          <p>15 pedaços, dois molhos e muita crocância.</p>
+          <span class="preco">R$ 64,90</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd3" value="1" min="1">
+            <button class="botao" onclick="adicionar(3, 'Balde Grande', 64.90, 'images/balde-grande.png', 'baldes')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Balde Gigante" data-categoria="baldes">
+        <img src="images/balde-gigante.webp" alt="Balde Gigante">
+        <div class="produto-info">
+          <span class="etiqueta">Melhor valor</span><br>
+          <small>baldes</small>
+          <h3>Balde Gigante</h3>
+          <p>20 pedaços para reunir a galera toda.</p>
+          <span class="preco">R$ 82,90</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd4" value="1" min="1">
+            <button class="botao" onclick="adicionar(4, 'Balde Gigante', 82.90, 'images/balde-gigante.webp', 'baldes')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Barbecue" data-categoria="molhos">
+        <img src="images/molho-barbecue.webp" alt="Barbecue">
+        <div class="produto-info">
+          <small>molhos</small>
+          <h3>Barbecue</h3>
+          <p>Defumado, agridoce e irresistível.</p>
+          <span class="preco">R$ 4,90</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd5" value="1" min="1">
+            <button class="botao" onclick="adicionar(5, 'Barbecue', 4.90, 'images/molho-barbecue.webp', 'molhos')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Cheddar cremoso" data-categoria="molhos">
+        <img src="images/molho-cheddar.webp" alt="Cheddar cremoso">
+        <div class="produto-info">
+          <small>molhos</small>
+          <h3>Cheddar cremoso</h3>
+          <p>Cremoso e intenso na medida certa.</p>
+          <span class="preco">R$ 5,90</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd6" value="1" min="1">
+            <button class="botao" onclick="adicionar(6, 'Cheddar cremoso', 5.90, 'images/molho-cheddar.webp', 'molhos')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Maionese temperada" data-categoria="molhos">
+        <img src="images/maionese-temperada.webp" alt="Maionese temperada">
+        <div class="produto-info">
+          <small>molhos</small>
+          <h3>Maionese temperada</h3>
+          <p>Leve, fresca e cheia de sabor.</p>
+          <span class="preco">R$ 4,90</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd7" value="1" min="1">
+            <button class="botao" onclick="adicionar(7, 'Maionese temperada', 4.90, 'images/maionese-temperada.webp', 'molhos')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Molho picante" data-categoria="molhos">
+        <img src="images/molho-picante.webp" alt="Molho picante">
+        <div class="produto-info">
+          <span class="etiqueta">Hot</span><br>
+          <small>molhos</small>
+          <h3>Molho picante</h3>
+          <p>Pimenta de verdade para quem aguenta.</p>
+          <span class="preco">R$ 5,50</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd8" value="1" min="1">
+            <button class="botao" onclick="adicionar(8, 'Molho picante', 5.50, 'images/molho-picante.webp', 'molhos')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Especial da casa" data-categoria="molhos">
+        <img src="images/molho-da-casa.webp" alt="Especial da casa">
+        <div class="produto-info">
+          <small>molhos</small>
+          <h3>Especial da casa</h3>
+          <p>A receita secreta dos brothers.</p>
+          <span class="preco">R$ 5,90</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd9" value="1" min="1">
+            <button class="botao" onclick="adicionar(9, 'Especial da casa', 5.90, 'images/molho-da-casa.webp', 'molhos')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Refrigerante" data-categoria="bebidas">
+        <img src="images/refrigerante.webp" alt="Refrigerante">
+        <div class="produto-info">
+          <small>bebidas</small>
+          <h3>Refrigerante</h3>
+          <p>Lata gelada, sabores variados.</p>
+          <span class="preco">R$ 6,50</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd10" value="1" min="1">
+            <button class="botao" onclick="adicionar(10, 'Refrigerante', 6.50, 'images/refrigerante.webp', 'bebidas')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Água mineral" data-categoria="bebidas">
+        <img src="images/agua-mineral.webp" alt="Água mineral">
+        <div class="produto-info">
+          <small>bebidas</small>
+          <h3>Água mineral</h3>
+          <p>Com ou sem gás, 500ml.</p>
+          <span class="preco">R$ 4,50</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd11" value="1" min="1">
+            <button class="botao" onclick="adicionar(11, 'Água mineral', 4.50, 'images/agua-mineral.webp', 'bebidas')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+      <article class="produto" data-nome="Suco natural" data-categoria="bebidas">
+        <img src="images/suco-natural.webp" alt="Suco natural">
+        <div class="produto-info">
+          <small>bebidas</small>
+          <h3>Suco natural</h3>
+          <p>Laranja ou limão, 400ml.</p>
+          <span class="preco">R$ 8,90</span>
+          <div class="produto-acoes">
+            <input type="number" id="qtd12" value="1" min="1">
+            <button class="botao" onclick="adicionar(12, 'Suco natural', 8.90, 'images/suco-natural.webp', 'bebidas')">Adicionar</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="vazio" id="nenhum-produto" style="display:none">
+      <h2>Nenhuma crocância encontrada</h2>
+      <p>Tente buscar outro produto ou limpe os filtros.</p>
+    </div>
+  </div>
+  <br><br>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-colunas">
+      <div>
+        <h3>Brothers Bucket</h3>
+        <p>Crocância sem limites. Sabor que reúne.</p>
+      </div>
+      <div>
+        <h3>Navegue</h3>
+        <a href="index.html">Início</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="perfil.html">Meu perfil</a>
+      </div>
+      <div>
+        <h3>Fale com a gente</h3>
+        <p>Telefone: (11) 4002-2025</p>
+        <p>E-mail: ola@brothersbucket.com.br</p>
+        <p>São Paulo - SP</p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Brothers Bucket. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

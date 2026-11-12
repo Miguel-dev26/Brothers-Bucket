@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu perfil — Brothers Bucket</title>
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="iniciarPagina(); carregarPerfil()">
+
+<header class="topo">
+  <div class="topo-conteudo">
+    <a href="index.html" class="logo">
+      <img src="images/brothers-bucket-logo.png" alt="Brothers Bucket">
+      <span>BROTHERS BUCKET</span>
+    </a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="carrinho.html">Carrinho (<span id="contador">0</span>)</a>
+      <span id="area-usuario">
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html" class="botao">Criar conta</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="titulo-pagina">
+    <h1 id="titulo-perfil">Meu perfil</h1>
+    <p>Gerencie seus dados e acompanhe sua história com a gente.</p>
+  </div>
+
+  <div class="container">
+    <div class="vazio" id="perfil-sem-login" style="display:none">
+      <h2>Sua conta mora aqui</h2>
+      <p>Entre ou crie uma conta para editar seus dados e endereço.</p>
+      <a href="login.html" class="botao">Entrar</a>
+      <a href="cadastro.html" class="botao botao-contorno">Criar conta</a>
+    </div>
+
+    <div id="perfil-conteudo" style="display:none">
+      <div class="perfil-grid">
+        <section class="cartao">
+          <h2>Dados pessoais</h2>
+          <div class="campo">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome">
+          </div>
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input type="email" id="email">
+          </div>
+          <div class="campo">
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone">
+          </div>
+          <div class="campo">
+            <label for="endereco">Endereço</label>
+            <textarea id="endereco" placeholder="Cadastre seu endereço"></textarea>
+          </div>
+          <button class="botao" onclick="salvarPerfil()">Salvar alterações</button>
+        </section>
+
+        <section class="cartao">
+          <h2>Pedidos</h2>
+          <p class="numero-grande" id="qtd-pedidos">0</p>
+          <p>pedidos realizados</p>
+          <a href="pedidos.html" class="botao botao-contorno">Ver histórico</a>
+          <hr>
+          <button class="botao botao-escuro" onclick="sair()">Sair da conta</button>
+        </section>
+      </div>
+      <p class="aviso">Ambiente demonstrativo: seus dados ficam salvos apenas neste navegador.</p>
+      <br>
+    </div>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-colunas">
+      <div>
+        <h3>Brothers Bucket</h3>
+        <p>Crocância sem limites. Sabor que reúne.</p>
+      </div>
+      <div>
+        <h3>Navegue</h3>
+        <a href="index.html">Início</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="perfil.html">Meu perfil</a>
+      </div>
+      <div>
+        <h3>Fale com a gente</h3>
+        <p>Telefone: (11) 4002-2025</p>
+        <p>E-mail: ola@brothersbucket.com.br</p>
+        <p>São Paulo - SP</p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Brothers Bucket. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
